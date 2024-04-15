@@ -1,9 +1,13 @@
 const rpsArray = ['rock', 'paper', 'scissors'];
 
 const getComputerChoice = () => {
-    for (let i = 0; i < rpsArray.length; i++) {
-        return rpsArray[i]; 
-    }
+    // Alternative approach for getting a random item from array
+
+    const random = Math.floor(Math.random() * rpsArray.length);
+
+    const item = rpsArray[random];
+
+    return item;
 }
 
 const playRound = (playerSelection, computerSelection) => {
@@ -27,5 +31,14 @@ const playRound = (playerSelection, computerSelection) => {
 
 const playerSelection = prompt("Enter your choice:");
 const computerSelection = getComputerChoice();
+
 console.log(playRound(playerSelection, computerSelection));
 console.log(computerSelection);
+
+// const playGame = () => {
+//     for (let i = 0; i < 5; i++) {
+//         return playRound();
+//     }
+// }
+
+// console.log(playGame());
