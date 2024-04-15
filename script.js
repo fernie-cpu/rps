@@ -19,7 +19,7 @@ const playRound = (playerSelection, computerSelection) => {
     } else if (computerSelection === "paper" && playerSelection === "rock") {
         return "You lose! Paper beats Rock";
     } else if (computerSelection === "scissors" && playerSelection === "paper") {
-        return "You lose! Scissors beater Paper"
+        return "You lose! Scissors beats Paper"
     } else if (computerSelection === playerSelection) {
         return "It's a tie."
     }
