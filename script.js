@@ -2,7 +2,7 @@ const rpsArray = ['rock', 'paper', 'scissors'];
 
 const getComputerChoice = () => {
     for (let i = 0; i < rpsArray.length; i++) {
-        return rpsArray; 
+        return rpsArray[i]; 
     }
 }
 
@@ -28,3 +28,4 @@ const playRound = (playerSelection, computerSelection) => {
 const playerSelection = prompt("Enter your choice:");
 const computerSelection = getComputerChoice();
 console.log(playRound(playerSelection, computerSelection));
+console.log(computerSelection);
