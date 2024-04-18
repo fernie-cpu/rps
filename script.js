@@ -1,14 +1,6 @@
-/*
-As I forgot to commit due to several attemps on this, I'll leave the changes as a comment, for this time:
-- create variable to set initial score
-- edit playRound to increment score value
-
-- create a winGame function to return the winner
-- edit playGame function to create the for loop that should work :(
-*/
-
 let playerScore = 0;
 let computerScore = 0;
+let result;
 
 const getComputerChoice = () => {
     const rpsArray = ['rock', 'paper', 'scissors'];
@@ -24,51 +16,52 @@ const getComputerChoice = () => {
 const playRound = (playerSelection, computerSelection) => {
 
     if (computerSelection === "rock" && playerSelection === "paper") {
-        playerScore += 1;
-        return "You win! Paper beats Rock";
+        result =  "You win! Paper beats Rock";
+        playerScore++;
     } else if (computerSelection === "paper" && playerSelection === "scissors") {
-        playerScore += 1;
-        return "You win! Scissors beats Paper";
+        result = "You win! Scissors beats Paper";
+        playerScore++;
     } else if (computerSelection === "scissors" && playerSelection === "rock") {
-        playerScore += 1;
-        return "You win! Rock beats Scissors";
+        result = "You win! Rock beats Scissors";
+        playerScore++;
     } else if (computerSelection === "rock" && playerSelection === "scissors") {
-        computerScore += 1;
-        return "You lose! Rock beats Scissors";
+        result = "You lose! Rock beats Scissors";
+        computerScore++;
     } else if (computerSelection === "paper" && playerSelection === "rock") {
-        computerScore += 1;
-        return "You lose! Paper beats Rock";
+        result = "You lose! Paper beats Rock";
+        computerScore++;
     } else if (computerSelection === "scissors" && playerSelection === "paper") {
-        computerScore += 1;
-        return "You lose! Scissors beats Paper"
+        result = "You lose! Scissors beats Paper"
+        computerScore++;
     } else if (computerSelection === playerSelection) {
-        return "It's a tie."
-    }
-    
+        result =  "It's a tie.";
+    } 
+    console.log(result);
+    console.log(playerScore);
+    console.log(computerScore);
 }
 
 // console.log(playRound(playerSelection, computerSelection));
 // console.log(computerSelection);
 const winGame = () => {
     if (playerScore === 5) {
-        return "You win!"
+        return "You win! " + result;
     } else if (computerScore === 5) {
-        return "Computer wins!"
+        return "Computer wins!";
     }
 }
 
+console.log(winGame())
+
 
 const playGame = () => {
-    let playerSelection = prompt("Enter your choice:").toLowerCase();
-    let computerSelection = getComputerChoice();
-    for (let i = 0; i < 5; i++) {
-        if (playerScore < 5 || computerScore < 5) {
-            return playRound(playerSelection, computerSelection);
-        } else {
-            return winGame();
-        }
+    for (let i = 0; i < 5; i += 1) {
+        let playerSelection = prompt("Enter your choice:").toLowerCase();
+        let computerSelection = getComputerChoice();
+        if (playerScore <= 5 || computerScore <= 5) {
+            playRound(playerSelection, computerSelection);
+        } 
     }
-    console.log(winGame());
  }
 
 console.log(playGame());
